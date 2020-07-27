@@ -15,6 +15,7 @@
     %th 何に使った？
     %th 金額
     %th 分類は？ 
+    %th 理由（あれば） 
 
   .__box
     -@posts.each do |index|   
@@ -28,3 +29,5 @@
           = index.price 
         %td
           = index.category 
+        %td
+          = index.note

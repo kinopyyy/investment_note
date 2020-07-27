@@ -13,7 +13,8 @@
   <br>
   -# = form.text_field :category, placeholder: :分類は？, class: :form__text
   = form.select :category, [["投資"], ["消費"], ["浪費"]], prompt: '選択してください'
-
+  <br>
+  = form.text_field :note, placeholder: :理由を書く, class: :form__reason
   <br>
   = form.submit '投稿する', class: :form__btn
 

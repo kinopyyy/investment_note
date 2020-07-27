@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:item, :price, :category,:day)
+    params.require(:post).permit(:item, :price, :category,:note,:day)
   end
 
 end
