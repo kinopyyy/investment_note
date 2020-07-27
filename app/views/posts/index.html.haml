@@ -4,26 +4,27 @@
 <br>
 お金の使い方を見直して、最高の人生を。100円ジュースから投資脳を鍛えるアプリ。
 
+.body
+  = link_to new_post_path do
+    はじめる
+<br><br><br>
+使った物リスト
+%table
+  %tr
+    %th 日にち
+    %th 何に使った？
+    %th 金額
+    %th 分類は？ 
 
-
-<br>
-今日は7月20日月曜日
-
-.main_box
-  .__what
-    %input{placeholder: "何に使った？", type: "text"}/
-  .__price
-    %input{placeholder: "いくらだった？", type: "text"}/
-  .__category
-    %select{required: ""}
-      %option{hidden: "", value: ""} 分類は？
-      %option{value: "1"} 消費（使ったお金と価値が【同じ】）
-      %option{value: "2"} 投資（使ったお金より価値が【高い】）
-      %option{value: "3"} 浪費（使ったお金より価値が【低い】）
- 
-aaa
-=form_with model; @post do |f|
-  .field
-    = f.label :ニックネーム , class:"field__title"
-    %span.field__must 必須
-    %span.field__text 6文字以下
+  .__box
+    -@posts.each do |index|   
+      %tr
+        %td
+          -# = index.created_at,format: :short
+          = index.day
+        %td
+          = index.item 
+        %td
+          = index.price 
+        %td
+          = index.category 

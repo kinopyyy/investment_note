@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
-  root "posts#index"
-  resources :posts do
-    collection do
-      
-      get 'dammy'
-
-    end
+  root "posts#index"  
+  # resources :posts do 
+  resources :posts, only: [:new, :create, :index]
   
-  end
 
- 
 end

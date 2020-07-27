@@ -1,0 +1,33 @@
+
+<br>
+今日は7月20日月曜日
+
+ 
+= form_with model: @post, class: :form, local: true do |form|
+
+  = form.date_field :day, placeholder: :日にち？, class: :form__day
+  <br>
+  = form.text_field :item, placeholder: :何買った？, class: :form__title
+  <br>
+  = form.text_field :price, placeholder: :金額は？, class: :form__text
+  <br>
+  -# = form.text_field :category, placeholder: :分類は？, class: :form__text
+  = form.select :category, [["投資"], ["消費"], ["浪費"]], prompt: '選択してください'
+
+  <br>
+  = form.submit '投稿する', class: :form__btn
+
+  -# = form_tag('/posts', method: :post) do
+    -# .main_box__item
+    -#   %input{placeholder: "何に使った？", type: "text", name: "item"}/
+    -# .main_box__price
+    -#   %input{placeholder: "いくらだった？", type: "text",name: "price"}/
+    -# .main_box__category
+    -#   %select{required: ""}
+    -#     %option{hidden: "", value: ""} 分類は？
+    -#     %option{value: "1"} 消費
+    -#     %option{value: "2"} 投資
+    -#     %option{value: "3"} 浪費
+
+    .main_box__submit
+      %input{type: "submit", value: "投稿する"}/
