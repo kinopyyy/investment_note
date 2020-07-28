@@ -23,7 +23,8 @@
 
 
 ### DEMO(gifで動画や写真)
-![](https://i.gyazo.com/fac4b286a972ad923a265769952706d8.jpg)
+![](https://i.gyazo.com/7e6a16b4551cd159a65d154de03bfdad.jpg)
+
 
 
 
