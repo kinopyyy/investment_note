@@ -1,12 +1,29 @@
 
 .header
-100円ジュースで投資を始めよう
-<br>
-お金の使い方を見直して、最高の人生を。100円ジュースから投資脳を鍛えるアプリ。
+  =image_tag "material/image1.jpg", class: "header-image"
 
+今日使ったものを記入してみよう
 .body
-  = link_to new_post_path do
-    はじめる
+
+= form_with model: @post, class: :form, local: true do |form|
+
+  = form.date_field :day, placeholder: :日にち？, class: :form_body
+  <br>
+  = form.text_field :item, placeholder: :何買った？, class: :form_body
+  <br>
+  = form.text_field :price, placeholder: :金額は？, class: :form_body
+  <br>
+  
+  = form.select :category, [["投資"], ["消費"], ["浪費"]], prompt: '選択してください',class:  "box"
+  <br>
+  = form.text_field :note, placeholder: :理由（あれば）, class: :form_body
+
+
+  <br>
+  = form.submit '投稿する', class: :form__btn
+
+
+
 <br><br><br>
 使った物リスト
 %table
@@ -16,6 +33,7 @@
     %th 金額
     %th 分類は？ 
     %th 理由（あれば） 
+    %th
 
   .__box
     -@posts.each do |index|   
@@ -25,9 +43,14 @@
           = index.day
         %td
           = index.item 
+        
         %td
           = index.price 
         %td
           = index.category 
         %td
           = index.note
+        %td 
+          = link_to "編集" ,edit_post_path(index.id)
+          <br>
+          = link_to "削除" ,post_path(index.id), method: :delete
