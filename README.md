@@ -1,4 +1,5 @@
-READMEに記載する項目
+![](https://i.gyazo.com/5cc71cc0db96cd05db40e22ea09893dc.png)
+
 ### アプリ名
   〜投資脳を作ろう〜
   100円ジュースを1万円の価値に
