@@ -50,5 +50,10 @@ test:
 production:
   <<: *default
   database: investment_note_production
-  username: investment_note
-  password: <%= ENV['INVESTMENT_NOTE_DATABASE_PASSWORD'] %>
+  # 本番環境設定に合わせるため変更
+  # username: investment_note
+  # password: <%= ENV['INVESTMENT_NOTE_DATABASE_PASSWORD'] %>
+
+   username: root
+   password: <%= ENV['DATABASE_PASSWORD'] %>
+   socket: /var/lib/mysql/mysql.sock
