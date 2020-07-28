@@ -39,17 +39,17 @@
     -@posts.each do |index|   
       %tr
         %td
-          -# = index.created_at,format: :short
           = index.day
         %td
           = index.item         
         %td
           = index.price 
-        %td
-          = index.category 
+        %td.category_text
+          = index.category
         %td
           = index.note
-        %td 
-          = link_to "編集・" ,edit_post_path(index.id)
-            
-          = link_to "削除" ,post_path(index.id), method: :delete
+        %td
+          %button 
+            = link_to "編集" ,edit_post_path(index.id)
+          %button 
+            = link_to "削除" ,post_path(index.id), method: :delete
