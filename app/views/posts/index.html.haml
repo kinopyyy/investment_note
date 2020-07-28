@@ -1,6 +1,6 @@
 
 .header
-  =image_tag "material/image1.jpg", class: "header-image"
+  =image_tag "material/image2.png", class: "header-image"
 
 今日使ったものを記入してみよう
 .body
@@ -24,7 +24,7 @@
 
 
 
-<br><br><br>
+<br>
 使った物リスト
 %table
   %tr
@@ -42,8 +42,7 @@
           -# = index.created_at,format: :short
           = index.day
         %td
-          = index.item 
-        
+          = index.item         
         %td
           = index.price 
         %td
@@ -51,6 +50,6 @@
         %td
           = index.note
         %td 
-          = link_to "編集" ,edit_post_path(index.id)
-          <br>
+          = link_to "編集・" ,edit_post_path(index.id)
+            
           = link_to "削除" ,post_path(index.id), method: :delete

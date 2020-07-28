@@ -20,10 +20,12 @@ READMEに記載する項目
 
 
 ### DEMO(gifで動画や写真)
+![](https://i.gyazo.com/fac4b286a972ad923a265769952706d8.jpg)
 
 
-### 工夫したポイント
-  
+
+### 工夫したポイント  
+  「投資」というと難しく感じるので、少ない画面で簡潔できるように
 
 ### 使用技術(開発環境)
   Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code
