@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order("day DESC")
+    @posts = Post.includes(:user).all.order("day DESC")
     @post = Post.new
   end
 
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:item, :price, :category,:note,:day)
+    params.require(:post).permit(:item, :price, :category,:note,:day).merge(user_id: current_user.id)
   end
 
 end
