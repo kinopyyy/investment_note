@@ -10,12 +10,13 @@ class PostsController < ApplicationController
 
   def create    
     Post.create(post_params)   
-    redirect_to root_path  
+    redirect_to user_path(current_user)  
   end 
   
   def show
     @post = Post.find(params[:id])
-
+    @post = Post.new
+    @posts = Post.includes(:user).all.order("day DESC")
   end
 
   def edit
@@ -25,13 +26,13 @@ class PostsController < ApplicationController
   def update
     post = Post.find(params[:id])
     post.update(post_params)
-    redirect_to root_path
+    redirect_to user_path(current_user)  
   end
 
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to root_path     
+    redirect_to user_path(current_user)    
   end
 
   private

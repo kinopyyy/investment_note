@@ -1,25 +1,56 @@
+-# テストページ
+
+-# <br><br>
+-# 今日使ったものを記入してみよう
+-# .body
+
+-# = form_with model: @post, class: :form, local: true do |form|
+
+-#   = form.date_field :day, placeholder: :日にち？, class: :form_body
+-#   <br>
+-#   = form.text_field :item, placeholder: :何買った？, class: :form_body
+-#   <br>
+-#   = form.text_field :price, placeholder: :金額は？, class: :form_body
+-#   <br>
+  
+-#   = form.select :category, [["投資"], ["消費"], ["浪費"]], prompt: '選択してください',class:  "box"
+-#   <br>
+-#   = form.text_field :note, placeholder: :理由（あれば）, class: :form_body
+
+
+-#   <br>
+-#   = form.submit '投稿する', class: :form__btn
+
+-# <br>
+-# 使った物リスト
 -# %table
 -#   %tr
 -#     %th 日にち
 -#     %th 何に使った？
--#     %th 金額
+-#     %th 金額（円）
 -#     %th 分類は？ 
 -#     %th 理由（あれば） 
--#     %th  
+-#     %th
 
 -#   .__box
--#     %tr
--#       %td
--#         = @post.day
--#       %td
--#         = @post.item 
--#       %td
--#         = @post.price
--#       %td
--#         = @post.category 
--#       %td
--#         = @post.note
--#       %td 
--#         = link_to "編集" ,edit_post_path(@post.id)
--#         <br>
--#         = link_to "削除" ,post_path(@post.id), method: :delete
+-#     -@posts.each do |index|   
+-#       %tr
+-#         %td
+-#           = index.day
+-#         %td
+-#           = index.item         
+-#         %td
+-#           = index.price.to_s(:delimited, delimiter: ",")   
+-#         %td.category_text
+-#           = index.category
+          
+-#         %td
+-#           = index.note
+-#         %td
+-#           %button 
+-#             = link_to "編集" ,edit_post_path(index.id)
+-#           %button 
+-#             = link_to "削除" ,post_path(index.id), method: :delete
+        
+-#         %td
+-#           = index.user.nickname
