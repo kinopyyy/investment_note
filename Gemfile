@@ -73,6 +73,8 @@ gem 'haml-rails'
 gem 'pry-rails'
 gem 'i18n_generators'
 gem 'devise'  
+gem "chartkick"
+gem 'chartable'
 
 
 group :production do

@@ -21,20 +21,11 @@
 .body
 
 = form_with model: @post, class: :form, local: true do |form|
-
   = form.date_field :day, placeholder: :日にち？, class: :form_body
-  <br>
   = form.text_field :item, placeholder: :何買った？, class: :form_body
-  <br>
-  = form.text_field :price, placeholder: :金額は？, class: :form_body
-  <br>
-  
-  = form.select :category, [["投資"], ["消費"], ["浪費"]], {prompt: '選択してください'}, { class: 'box' }
-  <br>
+  = form.text_field :price, placeholder: :金額は？, class: :form_body  
+  = form.select :category, [["投資"], ["消費"], ["浪費"]], {prompt: '分類'}, { class: 'box' }
   = form.text_field :note, placeholder: :理由（あれば）, class: :form_body
-
-
-  <br>
   = form.submit '投稿する', class: :form_btn
 
 <br>
@@ -70,3 +61,6 @@
         
         %td
           = index.user.nickname
+
+.graph
+  = pie_chart @chart
