@@ -29,13 +29,13 @@
   = form.text_field :price, placeholder: :金額は？, class: :form_body
   <br>
   
-  = form.select :category, [["投資"], ["消費"], ["浪費"]], prompt: '選択してください',class:  "box"
+  = form.select :category, [["投資"], ["消費"], ["浪費"]], {prompt: '選択してください'}, { class: 'box' }
   <br>
   = form.text_field :note, placeholder: :理由（あれば）, class: :form_body
 
 
   <br>
-  = form.submit '投稿する', class: :form__btn
+  = form.submit '投稿する', class: :form_btn
 
 <br>
 使った物リスト
