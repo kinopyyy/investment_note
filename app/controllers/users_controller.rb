@@ -1,15 +1,6 @@
 class UsersController < ApplicationController
 
 
-  # def new
-  #   @post = Post.new
-  # end
-
-  # def create    
-  #   Post.create(post_params)   
-  #   redirect_to user_path(current_user)  
-  # end 
-
   def show
     @user = User.find(params[:id])
     @posts = @user.posts

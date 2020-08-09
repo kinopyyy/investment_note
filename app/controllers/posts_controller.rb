@@ -1,14 +1,10 @@
 class PostsController < ApplicationController
-  def index
-  
+  def index  
     if user_signed_in?
-      redirect_to user_path(current_user)  
-      
-    else
-      
+      redirect_to user_path(current_user)        
+    else      
     end  
-    # @posts = Post.includes(:user).all.order("day DESC")
-    # @post = Post.new
+ 
   end
 
   def new
