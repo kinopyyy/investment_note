@@ -21,8 +21,7 @@
         %td
           = form.text_field :price, placeholder: :金額は？, class: :form__text
         %td.category_text
-          = form.select :category, [["投資"], ["消費"], ["浪費"]], prompt: '選択してください'
-          
+          = form.select  :category, [["投資"], ["消費"], ["浪費"]], prompt: '選択してください'          
         %td
           = form.text_field :note, placeholder: :理由を書く, class: :form__reason
         %td

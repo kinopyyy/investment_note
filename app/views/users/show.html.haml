@@ -49,7 +49,13 @@
         %td
           = index.price.to_s(:delimited, delimiter: ",")   
         %td.category_text
-          = index.category
+          -# = index.category
+          - if index.category == "投資"
+            %font{color: "#4169E1"} 投資
+          - elsif index.category == "消費"
+            %font{color: "green"} 消費
+          - else index.category == "浪費"
+            %font{color: "#FF69A3"} 浪費
           
         %td
           = index.note
@@ -57,10 +63,11 @@
           %button 
             = link_to "編集" ,edit_post_path(index.id)
           %button 
-            = link_to "削除" ,post_path(index.id), method: :delete
-        
+            = link_to "削除" ,post_path(index.id), method: :delete        
         %td
           = index.user.nickname
+       
+          
 
 .graph
   = pie_chart @chart
