@@ -3,6 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.main_box{
+  // background-color: peachpuff;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
 
 a {
   text-decoration: none;
@@ -10,7 +18,7 @@ a {
 }
 
 table{
-  width: 70%;
+  width: 100%;
   border-collapse:separate;
   border-spacing: 0;
 }
@@ -61,8 +69,8 @@ table tr:last-child td:last-child {
 
 
 .header-image{
-  width: 50%;
-
+  width: 40%;
+  
 }
 
 .form_body{
@@ -72,20 +80,43 @@ table tr:last-child td:last-child {
   margin-bottom: 3px; 
   margin-right: 5px; 
   margin-left: 5px;
+  color: gray;
 }
 
-.box{
-  height: 45px;
-  width: 130px;
-  margin-top: 5px;
-  margin-bottom: 5px; 
+.form_body__day{
+  height: 40px;
+  width: 160px;
+  color: gray;
+  margin-right: 5px; 
+}
+
+.form_body__item{
+  height: 40px;
+  width: 160px;
+  
+}
+
+.form_body__note{
+  height: 40px;
+  width: 190px;
   
 }
 
 .form_btn{
   margin-top: 5px;
   height: 40px;
+  width: 150px;
 }
+
+.box{
+  height: 45px;
+  width: 100px;
+  margin-top: 5px;
+  margin-bottom: 5px; 
+  color: gray;
+}
+
+
 
 .category_text{
   color: rgb(134, 28, 28);
@@ -97,5 +128,5 @@ table tr:last-child td:last-child {
 
 .chartjs-render-monitor{
  
-  
+  margin-top: 100px;
 }

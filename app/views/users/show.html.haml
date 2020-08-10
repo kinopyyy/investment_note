@@ -1,73 +1,73 @@
-.postTitle
-  = @user.nickname
-  さんのマイページ
 
-.header
-  =image_tag "material/image2.png", class: "header-image"
+
+.main_box
+  .header
+    =image_tag "material/image2.png", class: "header-image"
+    <br>
+    - if user_signed_in?
+      = link_to "新規投稿", new_post_path, class: "header__right--btn"
+      ／
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
+      ／
+      = current_user.nickname
+      さんのマイページ
+    - else
+      = link_to "ログイン", new_user_session_path, class: "header__right--btn"
+      = link_to "新規登録", new_user_registration_path, class: "header__right--btn"
+    
+
+  <br><br>
+  今日使ったものを記入してみよう
+  .body
+
+  = form_with model: @post, class: :form, local: true do |form|
+    = form.date_field :day, placeholder: :日にち？, class: :form_body__day
+    = form.text_field :item, placeholder: :何買った？, class: :form_body__item
+    = form.text_field :price, placeholder: :金額は？, class: :form_body  
+    = form.select :category, [["投資"], ["消費"], ["浪費"]], {prompt: '分類'}, { class: 'box' }
+    = form.text_field :note, placeholder: :理由（あれば）, class: :form_body__note
+    = form.submit '投稿する', class: :form_btn
+
   <br>
-  - if user_signed_in?
-    = link_to "新規投稿", new_post_path, class: "header__right--btn"
-    ／
-    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
-    ／ユーザー名：
-    = current_user.nickname
-  - else
-    = link_to "ログイン", new_user_session_path, class: "header__right--btn"
-    = link_to "新規登録", new_user_registration_path, class: "header__right--btn"
-   
+  使った物リスト
+  %table
+    %tr
+      %th 日にち
+      %th 何に使った？
+      %th 金額（円）
+      %th 分類は？ 
+      %th 理由（あれば） 
+      %th
 
-<br><br>
-今日使ったものを記入してみよう
-.body
+    .__box
+      -@posts.each do |index|   
+        %tr
+          %td
+            = index.day
+          %td
+            = index.item         
+          %td
+            = index.price.to_s(:delimited, delimiter: ",")   
+          %td.category_text
+            -# = index.category
+            - if index.category == "投資"
+              %font{color: "#4169E1"} 投資
+            - elsif index.category == "消費"
+              %font{color: "green"} 消費
+            - else index.category == "浪費"
+              %font{color: "#FF69A3"} 浪費
+            
+          %td
+            = index.note
+          %td
+            %button 
+              = link_to "編集" ,edit_post_path(index.id)
+            %button 
+              = link_to "削除" ,post_path(index.id), method: :delete        
+          %td
+            = index.user.nickname
+        
+            
 
-= form_with model: @post, class: :form, local: true do |form|
-  = form.date_field :day, placeholder: :日にち？, class: :form_body
-  = form.text_field :item, placeholder: :何買った？, class: :form_body
-  = form.text_field :price, placeholder: :金額は？, class: :form_body  
-  = form.select :category, [["投資"], ["消費"], ["浪費"]], {prompt: '分類'}, { class: 'box' }
-  = form.text_field :note, placeholder: :理由（あれば）, class: :form_body
-  = form.submit '投稿する', class: :form_btn
-
-<br>
-使った物リスト
-%table
-  %tr
-    %th 日にち
-    %th 何に使った？
-    %th 金額（円）
-    %th 分類は？ 
-    %th 理由（あれば） 
-    %th
-
-  .__box
-    -@posts.each do |index|   
-      %tr
-        %td
-          = index.day
-        %td
-          = index.item         
-        %td
-          = index.price.to_s(:delimited, delimiter: ",")   
-        %td.category_text
-          -# = index.category
-          - if index.category == "投資"
-            %font{color: "#4169E1"} 投資
-          - elsif index.category == "消費"
-            %font{color: "green"} 消費
-          - else index.category == "浪費"
-            %font{color: "#FF69A3"} 浪費
-          
-        %td
-          = index.note
-        %td
-          %button 
-            = link_to "編集" ,edit_post_path(index.id)
-          %button 
-            = link_to "削除" ,post_path(index.id), method: :delete        
-        %td
-          = index.user.nickname
-       
-          
-
-.graph
-  = pie_chart @chart
+  .graph
+    = pie_chart @chart

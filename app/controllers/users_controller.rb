@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @posts = @user.posts
     @post = Post.new
     @chart = [['消費', 10], ['浪費', 20],['投資',30]]
+    # @chart =  Post.analytics(:category)
+    # @chart = Post.order('created_at ASC').category(:category)
    
   end 
 
