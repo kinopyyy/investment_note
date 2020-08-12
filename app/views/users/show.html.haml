@@ -1,24 +1,7 @@
-
+.wrapper
+  = render 'posts/header'
 
 .main_box
-  .header
-    =image_tag "material/image4.png", class: "header__image" 
-    
-    <br>
-    .header__right
-      - if user_signed_in?
-        = link_to "新規投稿", new_post_path, class: "header__right__btn"
-        ／
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right__btn"
-        
-        .header__right__mypage
-          = current_user.nickname
-          さんのマイページ
-      - else
-        = link_to "ログイン", new_user_session_path, class: "header__right__btn"
-        = link_to "新規登録", new_user_registration_path, class: "header__right__btn"
-    
-
   <br><br>
   今日使ったものを記入してみよう
   .body
@@ -68,9 +51,10 @@
             %button 
               = link_to "削除" ,post_path(index.id), method: :delete        
           %td
-            = index.user.nickname
-        
-            
+            = index.user.nickname            
 
   .graph
     = pie_chart @chart
+
+.wrapper
+  = render 'posts/footer'

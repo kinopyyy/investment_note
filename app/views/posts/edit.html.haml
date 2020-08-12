@@ -1,3 +1,5 @@
+.wrapper
+  = render 'header'
 
 
 .main_box
@@ -29,3 +31,6 @@
             = form.text_field :note, placeholder: :理由を書く, class: :form__reason
           %td
             = form.submit '変更する', class: :form__btn
+
+.wrapper
+  = render 'footer'
