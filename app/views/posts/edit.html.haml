@@ -1,28 +1,31 @@
-編集する
 
-<br>
 
-%table
-  %tr
-    %th 日にち
-    %th 何に使った？
-    %th 金額（円）
-    %th 分類は？ 
-    %th 理由（あれば） 
-    %th
+.main_box
+  %h1 編集する
 
-  .__box
-    = form_with model: @post, class: :form, local: true do |form|
-      %tr
-        %td
-          = form.date_field :day, placeholder: :日にち？, class: :form__day
-        %td
-          = form.text_field :item, placeholder: :何買った？, class: :form__title        
-        %td
-          = form.text_field :price, placeholder: :金額は？, class: :form__text
-        %td.category_text
-          = form.select  :category, [["投資"], ["消費"], ["浪費"]], prompt: '選択してください'          
-        %td
-          = form.text_field :note, placeholder: :理由を書く, class: :form__reason
-        %td
-          = form.submit '変更する', class: :form__btn
+
+  .main_box__body
+  %table
+    %tr
+      %th 日にち
+      %th 何に使った？
+      %th 金額（円）
+      %th 分類は？ 
+      %th 理由（あれば） 
+      %th
+
+    .box
+      = form_with model: @post, class: :form, local: true do |form|
+        %tr
+          %td
+            = form.date_field :day, placeholder: :日にち？, class: :form__day
+          %td
+            = form.text_field :item, placeholder: :何買った？, class: :form__title        
+          %td
+            = form.text_field :price, placeholder: :金額は？, class: :form__text
+          %td.category_text
+            = form.select  :category, [["投資"], ["消費"], ["浪費"]], prompt: '選択してください'          
+          %td
+            = form.text_field :note, placeholder: :理由を書く, class: :form__reason
+          %td
+            = form.submit '変更する', class: :form__btn
