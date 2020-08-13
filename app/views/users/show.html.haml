@@ -9,7 +9,7 @@
   = form_with model: @post, class: :form, local: true do |form|
     = form.date_field :day, placeholder: :日にち？, class: :form_body__day
     = form.text_field :item, placeholder: :何買った？, class: :form_body__item
-    = form.text_field :price, placeholder: :金額は？, class: :form_body  
+    = form.text_field :price, placeholder: :金額は？, class: :form_body__price  
     = form.select :category, [["投資"], ["消費"], ["浪費"]], {prompt: '分類'}, { class: 'box' }
     = form.text_field :note, placeholder: :理由（あれば）, class: :form_body__note
     = form.submit '投稿する', class: :form_btn
@@ -35,7 +35,6 @@
           %td
             = index.price.to_s(:delimited, delimiter: ",")   
           %td.category_text
-            -# = index.category
             - if index.category == "投資"
               %font{color: "#4169E1"} 投資
             - elsif index.category == "消費"
@@ -50,9 +49,15 @@
               = link_to "編集" ,edit_post_path(index.id)
             %button 
               = link_to "削除" ,post_path(index.id), method: :delete        
-          %td
-            = index.user.nickname            
+          
+          -# ユーザーごとに表示されてるかの確認用
+          -# %td            
+            -# = index.user.nickname            
 
+  = Post.all.sum(:price)
+  -# - binding.pry user_id: current_user.id
+  = Post.group(:user_id).sum(:price)
+  
   .graph
     = pie_chart @chart
 

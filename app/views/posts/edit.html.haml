@@ -6,29 +6,30 @@
   %h1 編集する
 
 
-  .main_box__body
-  %table
-    %tr
-      %th 日にち
-      %th 何に使った？
-      %th 金額（円）
-      %th 分類は？ 
-      %th 理由（あれば） 
-      %th
+  
+  = form_with model: @post, class: :form, local: true do |form|
+    .main_box__body
+    %table
+      %tr
+        %th 日にち
+        %th 何に使った？
+        %th 金額（円）
+        %th 分類は？ 
+        %th 理由（あれば） 
+        %th
 
-    .box
-      = form_with model: @post, class: :form, local: true do |form|
+      .box
         %tr
           %td
-            = form.date_field :day, placeholder: :日にち？, class: :form__day
+            = form.date_field :day, placeholder: :日にち？, class: :form_body__day
           %td
-            = form.text_field :item, placeholder: :何買った？, class: :form__title        
+            = form.text_field :item, placeholder: :何買った？, class: :form_body__item       
           %td
-            = form.text_field :price, placeholder: :金額は？, class: :form__text
+            = form.text_field :price, placeholder: :金額は？, class: :form_body 
           %td.category_text
-            = form.select  :category, [["投資"], ["消費"], ["浪費"]], prompt: '選択してください'          
+            = form.select  :category, [["投資"], ["消費"], ["浪費"]],  {prompt: '分類'}, { class: 'box' }
           %td
-            = form.text_field :note, placeholder: :理由を書く, class: :form__reason
+            = form.text_field :note, placeholder: :理由を書く, class: :form_body__note
           %td
             = form.submit '変更する', class: :form__btn
 
