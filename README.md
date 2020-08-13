@@ -29,7 +29,7 @@
 
 
 ### DEMO(gifで動画や写真)
-![](https://i.gyazo.com/7e6a16b4551cd159a65d154de03bfdad.jpg)
+![Uploading 6728f18e4db9964883f078f5ba3f7c44.png…]()
 
 
 
@@ -42,13 +42,17 @@
 
 
 ### 課題や今後実装したい機能
-  - 月ごとや週ごとに円グラフで傾向を見れるように
-  - 新規ユーザー登録機能
+  - 月ごとや週ごとに円グラフを実装
 
-  - FPの知人からの意見を取り入れて
+  - ファイナンシャルプランナーからの意見を取り入れて
   ・投資と浪費の金額目標に対し上限を超えたらアラーム
   ・1週間ごとに、目標を達成したら達成マークがつくように
   ・達成したらポイントがもらえると面白い（企業タイアップ）
+
+
+### 更新履歴
+- 8/13  新規ユーザー登録機能実装
+
 
 ### DB設計
 
@@ -60,3 +64,16 @@
 |category|text|null: false|
 |note|text|null: false|
 |day|date|null: false|
+
+##### Association
+belongs_to :user
+
+
+#### usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|nickname|string|null: false|
+
+##### Association
+has_many :posts
