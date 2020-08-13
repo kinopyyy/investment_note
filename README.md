@@ -29,7 +29,9 @@
 
 
 ### DEMO(gifで動画や写真)
-![Uploading 6728f18e4db9964883f078f5ba3f7c44.png…]()
+
+![](https://i.gyazo.com/6728f18e4db9964883f078f5ba3f7c44.png)
+
 
 
 
