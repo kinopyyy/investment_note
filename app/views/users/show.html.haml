@@ -54,12 +54,14 @@
           -# %td            
             -# = index.user.nickname            
 
-  = Post.all.sum(:price)
-  -# - binding.pry user_id: current_user.id
-  = Post.group(:user_id).sum(:price)
+          
+  -# 金額合計値のコード（未実装）
+  -# = Post.all.sum(:price)
+  -# = Post.group(:user_id).sum(:price)
   
-  .graph
-    = pie_chart @chart
+  -# グラフのコード（未実装）
+  -# .graph
+  -#   = pie_chart @chart
 
 .wrapper
   = render 'posts/footer'
