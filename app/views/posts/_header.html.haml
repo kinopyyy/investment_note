@@ -6,8 +6,7 @@
     <br>
     .header__right
       - if user_signed_in?
-        = link_to "新規投稿", new_post_path, class: "header__right__btn"
-        ／
+       
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right__btn"
         
         .header__right__mypage
