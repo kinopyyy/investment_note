@@ -1,18 +1,19 @@
 
 .login_background
+  .login_background__top_box
   .login_background__login_main
     .login_background__login_main__box
       .login_background__login_main__box__login_header
         =link_to root_path do
-          =image_tag "material/image4.png", class: "login_background__login_main__box__login_header__image" 
+          =image_tag "material/image4.png", width: "130px"
 
-      .login_background__login_main_box__text
+      .login_background__login_main__box__text
         ログインページ 
 
       %br 
       %br
       
-      .login_background__login_main_box__test
+      .login_background__login_main__box__test
         テストアカウント
         <br> email：「111@gmail.com」
         <br> パスワード：「111111」
@@ -21,29 +22,29 @@
       %br
       
 
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .field
-          = f.label :メールアドレス
-          %br/
-          = f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: "xxx@ppp.com", class: "email"
-        
-        %br/
-        .field
-          = f.label :パスワード
-          %br/
-          = f.password_field :password, autocomplete: "current-password" ,placeholder: "6文字以上", class: "password"
-        - if devise_mapping.rememberable?
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .field
-            = f.check_box :remember_me
-            = f.label :情報を保存
+            = f.label :メールアドレス
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: "xxx@ppp.com", class: "email"
+          
+          %br/
+          .field
+            = f.label :パスワード
+            %br/
+            = f.password_field :password, autocomplete: "current-password" ,placeholder: "6文字以上", class: "password"
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label :情報を保存
 
-        <br><br>
+          <br><br>
 
-        .actions
-          = f.submit "ログインする" , class:"login_button"
+          .actions
+            = f.submit "ログインする" , class:"login_button"
 
-        <br><br>
-      = render "devise/shared/links"
+          <br><br>
+        = render "devise/shared/links"
 
   .wrapper
     = render 'posts/footer'
