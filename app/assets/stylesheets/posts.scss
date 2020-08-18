@@ -50,20 +50,39 @@
         font-size: 20px;   
         height: 50px;
         margin-top: 50px;;
+       
         // background-color: blue;
       }
 
       &__test{    
         font-size: 15px;
         color: rgb(45, 57, 58);
-        .email{
-          background-color: chartreuse;
-        }
+        
       }
     }
   }
 }
 
+.email{
+  height: 35px;
+  width: 250px;
+  padding-left: 10px;
+  margin-bottom: 20px; 
+}
+
+.password{
+  height: 35px;
+  width: 250px;
+  padding-left: 10px;
+  margin-bottom: 20px; 
+}
+
+.field_box{
+  height: 35px;
+  width: 250px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
 
 
 .main_box{
@@ -79,12 +98,12 @@
     color: #056b85;
   }
   &__footer{
-   
+    height: 100px;
     margin-top: 50px;
     margin-left: 43%;
     a{
       text-decoration: none;
-      color:#20B2AA;
+      color:#000000;
       
     }
   }
@@ -255,4 +274,17 @@ table tr:last-child td:last-child {
 
 .chartjs-render-monitor{
   margin-top: 100px;
+}
+
+.next_button {
+  height: 60px;
+  width: 300px;
+  background-color: #056b85;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center; 
+  border-style: none;       
 }
